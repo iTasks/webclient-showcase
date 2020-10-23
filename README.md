@@ -1,5 +1,5 @@
 ![Java CI with Maven](https://github.com/kmandalas/webclient-showcase/workflows/Java%20CI%20with%20Maven/badge.svg)
-
+### _Need additional change for running on gitpo-io like gitpod.yaml editing as standard docker is not supported_
 # webclient-showcase
 This demo project aims to be an introduction to developing Reactive Microservices based on the Spring framework.
 For a complete guidem check our related article on Dzone here: https://dzone.com/articles/spring-reactive-microservices-a-showcase
