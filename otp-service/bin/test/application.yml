@@ -1,0 +1,15 @@
+spring:
+  flyway:
+    url: ${DB_URL}
+    password: ${DB_PASSWORD}
+    baseline-on-migrate: true
+    user: ${DB_USERNAME}
+  r2dbc:
+    url: ${DB_URL_R2DBC}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+external:
+  services:
+    notifications: http://localhost:8999/notifications
+    number-information: http://localhost:8999/number-information

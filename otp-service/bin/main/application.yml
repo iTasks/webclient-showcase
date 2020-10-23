@@ -1,0 +1,46 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: otp-service
+  mvc:
+    log-request-details: true
+  cloud:
+    consul:
+      host: ${consul.host:localhost}
+      port: ${consul.port:8500}
+    loadbalancer:
+      ribbon:
+        enabled: false
+  flyway:
+    url: jdbc:postgresql://${postgres.host:localhost}:5432/${postgres.db:test}?currentSchema=demo
+    user: ${postgres.user:kmandalas}
+    password: ${postgres.password:passepartout}
+  #    schemas: demo
+  #    locations: db/migration
+  r2dbc:
+    url: r2dbc:postgresql://${postgres.host:localhost}:5432/${postgres.db:test}?currentSchema=demo
+    username: ${postgres.user:kmandalas}
+    password: ${postgres.password:passepartout}
+  zipkin:
+    base-url: http://${jaeger.host:localhost}:9411/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level:
+    gr.kmandalas: INFO
+    org.springframework.web: INFO
+#  file:
+#    path: ${logging.file.path}
+#    name: ${logging.file.name}
+
+external:
+  services:
+    notifications: http://${notification.service.host:localhost}:${notification.service.port:8005}/notifications
+    number-information: http://${number-information.service.host:localhost}:${number-information.service.port:8006}/number-information
